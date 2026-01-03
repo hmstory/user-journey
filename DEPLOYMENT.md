@@ -2,42 +2,33 @@
 
 ## GitHub Pages 배포 방법
 
-### 1. GitHub 저장소 생성
-1. https://github.com/new 접속
-2. 저장소 이름: `user-journey-map` (또는 원하는 이름)
-3. Public으로 설정
-4. "Create repository" 클릭
+### 방법 1: gh-pages 브랜치 사용 (권장)
 
-### 2. 저장소 연결 및 푸시
+1. 배포 스크립트 실행:
 ```bash
 cd /Users/quokka/user-journey-map
-git remote add origin https://github.com/hmstory/user-journey-map.git
-git push -u origin main
+./deploy.sh
 ```
 
-### 3. GitHub Pages 설정
-1. 저장소 Settings → Pages
-2. Source: "GitHub Actions" 선택
-3. 저장
+2. GitHub 저장소 Settings → Pages:
+   - Source: "Deploy from a branch" 선택
+   - Branch: `gh-pages` 선택
+   - Folder: `/ (root)` 선택
+   - Save
 
-### 4. 자동 배포
-- `main` 브랜치에 푸시하면 자동으로 배포됩니다
-- 배포 URL: `https://hmstory.github.io/user-journey-map/`
+3. 배포 URL: `https://hmstory.github.io/user-journey/`
 
-## 수동 배포 (대안)
+### 방법 2: 수동 배포
 
-만약 GitHub Actions가 작동하지 않으면:
-
-1. Settings → Pages
-2. Source: "Deploy from a branch" 선택
-3. Branch: `main` / Folder: `/dist` 선택
-4. 저장
-
-그리고 빌드된 파일을 푸시:
 ```bash
 npm run build
-git add dist
-git commit -m "Add dist for deployment"
+git checkout -b gh-pages
+git add dist/
+git commit -m "Deploy to GitHub Pages"
 git subtree push --prefix dist origin gh-pages
 ```
 
+## 참고
+
+- Base path가 `/user-journey/`로 설정되어 있습니다.
+- 배포 후 1-2분 정도 소요됩니다.
