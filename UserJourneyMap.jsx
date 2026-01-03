@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import { 
   User, 
-  Smile, 
   Lightbulb, 
   Flame, 
   HelpCircle, 
   Target, 
   Zap, 
   Frown, 
-  Gem, 
   Rocket, 
   BookOpen,
-  MonitorOff,
   Repeat,
   Code,
   Trophy,
-  MessageCircleQuestion,
+  MessageCircle,
   Database,
   ExternalLink,
   Printer
@@ -104,7 +101,7 @@ const UserJourneyMap = () => {
       emotion: "아쉬움 😥",
       score: 65,
       color: "bg-orange-100 border-orange-400 text-orange-800",
-      icon: <MessageCircleQuestion className="w-5 h-5" />
+      icon: <MessageCircle className="w-5 h-5" />
     },
     {
       id: 8,
